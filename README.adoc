@@ -1,0 +1,145 @@
+= Nushell Config
+Jordan Williams <jordan@jwillikers.com>
+:experimental:
+:icons: font
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+:carapace-bin: https://rsteube.github.io/carapace-bin/carapace-bin.html[carapace-bin]
+:Nushell: https://nushell.sh/[Nushell]
+:Starship: https://starship.rs/[Starship]
+
+My configuration for {Nushell}.
+
+== Usage
+
+This repository contains the configuration files for {Nushell}.
+This file is synchronized using this Git repository.
+The following instructions detail how to use and sync this repository.
+
+== Set up
+
+Some packages need to be installed before using this configuration.
+My Nushell configuration relies on a couple of other utilities: {carapace-bin} for completions and {Starship} for the prompt configuration.
+The following instructions install these along with Nushell itself.
+
+. Add the `rsteube` user's RPM repository to your system.
++
+./etc/yum.repos.d/rsteube-fury.repo
+[,sh]
+----
+[fury]
+name=Gemfury Private Repo
+baseurl=https://yum.fury.io/rsteube/
+enabled=1
+gpgcheck=0
+----
+
+. Add the `starship` COPR repository to your system.
++
+[,sh]
+----
+curl -L https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora/atim-starship-fedora.repo \
+  | sudo tee /etc/yum.repos.d/atim-starship-fedora.repo
+----
+
+. Install the `carapace-bin`, `nu`, and `starship` packages.
++
+[,sh]
+----
+sudo rpm-ostree install carapace-bin nu starship
+----
+
+. Reboot for the changes to take effect.
++
+[,sh]
+----
+sudo systemctl reboot
+----
+
+=== Install
+
+Install these settings with the following instructions.
+
+. Clone this repository.
++
+[,sh]
+----
+git -C ~/Projects clone git@github.com:jwillikers/nushell-config.git
+----
+
+. Create the _~/.config/nushell_ directory.
++
+[,sh]
+----
+mkdir ~/.config/nushell
+----
+
+. Copy the configuration files in the `nushell` directory to the Nushell configuration directory.
++
+[,sh]
+----
+cp ~/Projects/nushell-config/nushell/*.nu ~/.config/nushell/
+----
+
+. Follow the install instructions in the https://github.com/jwillikers/starship-config[Starship config repository] to configure the prompt.
+
+=== Update
+
+To update the settings in this repository from an existing installation, follow these steps.
+
+. If you haven't already done so, clone this repository.
++
+[,sh]
+----
+git -C ~/Projects clone git@github.com:jwillikers/nushell-config.git
+----
+
+. Copy the Nushell scripts in the `~/.config/nushell` directory to the repository.
++
+[,sh]
+----
+cp ~/.config/nushell/*.nu ~/Projects/nushell-config/nushell/
+----
+
+. Stage the updated file.
++
+[,sh]
+----
+git -C ~/Projects/nushell-config add -A
+----
+
+. Commit.
++
+[,sh]
+----
+git -C ~/Projects/nushell-config commit -m "Update configuration putting all others to shame"
+----
+
+. Push the changes back to the central repository.
++
+[,sh]
+----
+git -C ~/Projects/nushell-config push
+----
+
+== Code of Conduct
+
+Please refer to the project's link:CODE_OF_CONDUCT.adoc[Code of Conduct].
+
+== License
+
+This repository is licensed under the https://www.gnu.org/licenses/gpl-3.0.html[GPLv3].
+Please refer to the bundled link:LICENSE.adoc[license].
+
+== Copyright
+
+© 2023 Jordan Williams
+
+== Authors
+
+mailto:{email}[{author}]

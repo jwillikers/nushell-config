@@ -61,6 +61,34 @@ sudo rpm-ostree install carapace-bin nu starship
 sudo systemctl reboot
 ----
 
+. Create the directory `~/.cache/carapace`.
++
+[,sh]
+----
+mkdir -p ~/.cache/carapace
+----
+
+. Generate the Carapace Nushell init file.
++
+[,sh]
+----
+nu -c 'carapace _carapace nushell | save --force ~/.cache/carapace/init.nu'
+----
+
+. Create the directory `~/.cache/starship`.
++
+[,sh]
+----
+mkdir -p ~/.cache/starship
+----
+
+. Generate the Starship Nushell init file.
++
+[,sh]
+----
+nu -c 'starship init nu | save --force ~/.cache/starship/init.nu'
+----
+
 === Install
 
 Install these settings with the following instructions.

@@ -43,7 +43,7 @@ gpgcheck=0
 +
 [,sh]
 ----
-curl -L https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora/atim-starship-fedora.repo \
+curl --location https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora/atim-starship-fedora.repo \
   | sudo tee /etc/yum.repos.d/atim-starship-fedora.repo
 ----
 
@@ -59,34 +59,6 @@ sudo rpm-ostree install carapace-bin nu starship
 [,sh]
 ----
 sudo systemctl reboot
-----
-
-. Create the directory `~/.cache/carapace`.
-+
-[,sh]
-----
-mkdir -p ~/.cache/carapace
-----
-
-. Generate the Carapace Nushell init file.
-+
-[,sh]
-----
-nu -c 'carapace _carapace nushell | save --force ~/.cache/carapace/init.nu'
-----
-
-. Create the directory `~/.cache/starship`.
-+
-[,sh]
-----
-mkdir -p ~/.cache/starship
-----
-
-. Generate the Starship Nushell init file.
-+
-[,sh]
-----
-nu -c 'starship init nu | save --force ~/.cache/starship/init.nu'
 ----
 
 === Install
@@ -107,53 +79,16 @@ git -C ~/Projects clone git@github.com:jwillikers/nushell-config.git
 mkdir ~/.config/nushell
 ----
 
-. Copy the configuration files in the `nushell` directory to the Nushell configuration directory.
+. Symlink the configuration files in the `nushell` directory to the Nushell configuration directory.
 +
 [,sh]
 ----
-cp ~/Projects/nushell-config/nushell/*.nu ~/.config/nushell/
+ln --relative --symbolic --force ~/Projects/nushell-config/nushell/*.nu ~/.config/nushell/
 ----
 
 . Follow the install instructions in the https://github.com/jwillikers/starship-config[Starship config repository] to configure the prompt.
 
-=== Update
-
-To update the settings in this repository from an existing installation, follow these steps.
-
-. If you haven't already done so, clone this repository.
-+
-[,sh]
-----
-git -C ~/Projects clone git@github.com:jwillikers/nushell-config.git
-----
-
-. Copy the Nushell scripts in the `~/.config/nushell` directory to the repository.
-+
-[,sh]
-----
-cp ~/.config/nushell/*.nu ~/Projects/nushell-config/nushell/
-----
-
-. Stage the updated file.
-+
-[,sh]
-----
-git -C ~/Projects/nushell-config add -A
-----
-
-. Commit.
-+
-[,sh]
-----
-git -C ~/Projects/nushell-config commit -m "Update configuration putting all others to shame"
-----
-
-. Push the changes back to the central repository.
-+
-[,sh]
-----
-git -C ~/Projects/nushell-config push
-----
+. Open a new shell to complete the installation.
 
 == Code of Conduct
 
@@ -166,7 +101,7 @@ Please refer to the bundled link:LICENSE.adoc[license].
 
 == Copyright
 
-© 2023 Jordan Williams
+© 2023-2024 Jordan Williams
 
 == Authors
 

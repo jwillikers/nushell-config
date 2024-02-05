@@ -1,10 +1,15 @@
 {
     "cSpell.words": [
         "adoc",
+        "atim",
+        "COPR",
+        "Gemfury",
+        "gpgcheck",
         "ifdef",
         "jwillikers",
         "mkdir",
         "Nushell",
-        "ostree"
+        "ostree",
+        "rsteube"
     ]
 }

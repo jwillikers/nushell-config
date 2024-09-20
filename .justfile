@@ -9,7 +9,7 @@ format:
 install:
     #!/usr/bin/env bash
     set -euxo pipefail
-    cp --update=none yum.repos.d/rsteube-fury.repo /etc/yum.repos.d/rsteube-fury.repo
+    sudo cp --update=none yum.repos.d/rsteube-fury.repo /etc/yum.repos.d/rsteube-fury.repo
     curl --location https://copr.fedorainfracloud.org/coprs/atim/nushell/repo/fedora/atim-nushell-fedora.repo \
         | sudo tee /etc/yum.repos.d/atim-nushell-fedora.repo
     distro=$(awk -F= '$1=="ID" { print $2 ;}' /etc/os-release)

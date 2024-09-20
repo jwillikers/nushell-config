@@ -28,9 +28,9 @@ Some packages need to be installed before using this configuration.
 My Nushell configuration relies on a couple of other utilities: {carapace-bin} for completions and {Starship} for the prompt configuration.
 The following instructions install these along with Nushell itself.
 
-. Install {just} by following the instructions in the https://github.com/casey/just?tab=readme-ov-file#installation[installation section].
-
 . Follow the install instructions in the https://github.com/jwillikers/starship-config[Starship config repository] to configure the prompt.
+
+. Install {just} by following the instructions in the https://github.com/casey/just?tab=readme-ov-file#installation[installation section].
 
 . Clone this repository.
 +

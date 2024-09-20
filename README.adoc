@@ -10,6 +10,7 @@ ifdef::env-github[]
 :warning-caption: :warning:
 endif::[]
 :carapace-bin: https://rsteube.github.io/carapace-bin/carapace-bin.html[carapace-bin]
+:just: https://github.com/casey/just[just]
 :Nushell: https://nushell.sh/[Nushell]
 :Starship: https://starship.rs/[Starship]
 
@@ -21,72 +22,43 @@ This repository contains the configuration files for {Nushell}.
 This file is synchronized using this Git repository.
 The following instructions detail how to use and sync this repository.
 
-== Set up
+=== Install
 
 Some packages need to be installed before using this configuration.
 My Nushell configuration relies on a couple of other utilities: {carapace-bin} for completions and {Starship} for the prompt configuration.
 The following instructions install these along with Nushell itself.
 
-. Add the `rsteube` user's RPM repository to your system.
-+
-./etc/yum.repos.d/rsteube-fury.repo
-[,sh]
-----
-[fury]
-name=Gemfury Private Repo
-baseurl=https://yum.fury.io/rsteube/
-enabled=1
-gpgcheck=0
-----
+. Install {just} by following the instructions in the https://github.com/casey/just?tab=readme-ov-file#installation[installation section].
 
-. Add the `starship` COPR repository to your system.
-+
-[,sh]
-----
-curl --location https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora/atim-starship-fedora.repo \
-  | sudo tee /etc/yum.repos.d/atim-starship-fedora.repo
-----
-
-. Install the `carapace-bin`, `nu`, and `starship` packages.
-+
-[,sh]
-----
-sudo rpm-ostree install carapace-bin nu starship
-----
-
-. Reboot for the changes to take effect.
-+
-[,sh]
-----
-sudo systemctl reboot
-----
-
-=== Install
-
-Install these settings with the following instructions.
+. Follow the install instructions in the https://github.com/jwillikers/starship-config[Starship config repository] to configure the prompt.
 
 . Clone this repository.
 +
 [,sh]
 ----
-git -C ~/Projects clone git@github.com:jwillikers/nushell-config.git
+git clone git@github.com:jwillikers/nushell-config.git
 ----
 
-. Create the _~/.config/nushell_ directory.
+. Change to the project's directory.
 +
 [,sh]
 ----
-mkdir ~/.config/nushell
+cd nushell-config
 ----
 
-. Symlink the configuration files in the `nushell` directory to the Nushell configuration directory.
+. Run `just` to install everything.
 +
 [,sh]
 ----
-ln --relative --symbolic --force ~/Projects/nushell-config/nushell/*.nu ~/.config/nushell/
+just
 ----
 
-. Follow the install instructions in the https://github.com/jwillikers/starship-config[Starship config repository] to configure the prompt.
+. On Fedora Atomic systems, reboot for the changes to take effect.
++
+[,sh]
+----
+sudo systemctl reboot
+----
 
 . Open a new shell to complete the installation.
 

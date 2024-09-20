@@ -107,4 +107,4 @@ carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
 
 # Starship
 mkdir ~/.cache/starship
-starship init nu | save -f ~/.cache/starship/init.nu
+starship init nu | save --force ~/.cache/starship/init.nu

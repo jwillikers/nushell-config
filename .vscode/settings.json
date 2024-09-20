@@ -6,6 +6,7 @@
         "Gemfury",
         "gpgcheck",
         "ifdef",
+        "justfile",
         "jwillikers",
         "mkdir",
         "Nushell",

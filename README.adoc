@@ -10,7 +10,10 @@ ifdef::env-github[]
 :warning-caption: :warning:
 endif::[]
 :carapace-bin: https://rsteube.github.io/carapace-bin/carapace-bin.html[carapace-bin]
+:direnv: https://direnv.net/[direnv]
 :just: https://github.com/casey/just[just]
+:nu-scripts: https://github.com/nushell/nu_scripts[nu_scripts]
+:nupm: https://github.com/nushell/nupm[nupm]
 :Nushell: https://nushell.sh/[Nushell]
 :Starship: https://starship.rs/[Starship]
 
@@ -25,7 +28,8 @@ The following instructions detail how to use and sync this repository.
 === Install
 
 Some packages need to be installed before using this configuration.
-My Nushell configuration relies on a couple of other utilities: {carapace-bin} for completions and {Starship} for the prompt configuration.
+My Nushell configuration relies on a couple of other utilities: {carapace-bin} for completions, {Starship} for the prompt configuration, and {direnv} for automatic environment set up.
+Both {nupm} and {nu_scripts} are also incorporated as part of the installation.
 The following instructions install these along with Nushell itself.
 
 . Follow the install instructions in the https://github.com/jwillikers/starship-config[Starship config repository] to configure the prompt.

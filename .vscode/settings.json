@@ -3,14 +3,17 @@
         "adoc",
         "atim",
         "COPR",
+        "direnv",
         "Gemfury",
         "gpgcheck",
         "ifdef",
         "justfile",
         "jwillikers",
         "mkdir",
+        "nupm",
         "Nushell",
         "ostree",
         "rsteube"
-    ]
+    ],
+    "asciidoc.antora.enableAntoraSupport": false
 }
